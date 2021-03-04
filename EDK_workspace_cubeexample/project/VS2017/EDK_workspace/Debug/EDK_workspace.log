@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  cubeexample.cc
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_cubeexample\src\cubeexample.cc(133): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_cubeexample\src\cubeexample.cc(168): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  EDK_workspace.vcxproj -> D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_cubeexample\project\VS2017\EDK_workspace\..\..\..\bin\EDK_workspace.exe
