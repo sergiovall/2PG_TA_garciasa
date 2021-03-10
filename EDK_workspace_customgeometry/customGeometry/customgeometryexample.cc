@@ -14,6 +14,7 @@
 struct GameState {
 	EDK3::ref_ptr<EDK3::Camera> camera;
 	EDK3::ref_ptr<EDK3::Node> root;
+	EDK3::ref_ptr<EDK3::Node> cube_root;
 };
 
 void prepare(GameState *state) {
@@ -29,14 +30,74 @@ void prepare(GameState *state) {
 		0.5f, 0.5f, 0.0f,
 		-0.5f, 0.5f, 0.0f,
 		-0.5f, -0.5f, 0.0f,
-		0.5f, 0.5f, 0.0f};
+		0.5f, 0.5f, 0.0f, 
+		-0.5f, -0.5f, -1.0f,
+		-0.5f, -0.5f, 0.0f,
+		-0.5f, 0.5f, 0.0f,
+		-0.5f, 0.5f, -1.0f,
+		-0.5f, -0.5f, -1.0f,
+		-0.5f, 0.5f, 0.0f,
+		-0.5f, 0.5f, -1.0f,
+		-0.5f, -0.5f, -1.0f,
+		0.5f, 0.5f, -1.0f,
+		-0.5f, -0.5f, -1.0f,
+		0.5, -0.5f, -1.0f,
+		0.5f, 0.5f, -1.0f,
+		0.5f, -0.5f, -1.0f,
+		0.5f, -0.5f, 0.0f,
+		0.5f, 0.5f, 0.0f,
+		0.5f, 0.5f, -1.0f,
+		0.5f, -0.5f, -1.0f,
+		0.5f, 0.5f, 0.0f,
+		-0.5f, 0.5f, -1.0f,
+		0.5f, 0.5f, -1.0f,
+		0.5f, 0.5f, 0.0f,
+		-0.5f, 0.5f, -1.0f,
+		0.5f, 0.5f, 0.0f,
+		-0.5f, 0.5f, 0.0f,
+		-0.5f, -0.5f, -1.0f,
+		0.5f, -0.5f, -1.0f,
+		0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, -1.0f,
+		0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f };
 
 	float normals[] = { 0.0f, 1.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f };
+		0.0f, 1.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		0.0f, -1.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		-1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 0.0f, -1.0f };
 
 
 	int positions_size = sizeof(positions);
@@ -49,8 +110,8 @@ void prepare(GameState *state) {
 	custom_geometry->uploadVertexNormals(normals, normals_size, positions_size);
 
 	// generate idices
-	unsigned int indices[] = { 0, 1, 2, 3, 4, 5 };
-	custom_geometry->createIndices(6);
+	unsigned int indices[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 17, 16, 15, 14, 13, 12, 23,22,21,20,19,18,29,28,27,26,25,24, 30,31,32,33,34,35 };
+	custom_geometry->createIndices(36);
 	custom_geometry->uploadIndices(indices, sizeof(indices));
 
 	// Material
@@ -71,7 +132,7 @@ void prepare(GameState *state) {
 	state->root = drawable.get();
 
 	// Transform
-	drawable->set_position(0.0f, -0.5f, 0.0f);
+	drawable->set_position(0.0f, -1.0f, -2.0f);
 
 	// Color 
 	float green_color[] = { 0 / 255.0f, 190 / 255.0f,  222 / 255.0f, 1.0f };
@@ -114,6 +175,8 @@ int ESAT::main(int argc, char **argv) {
 
 		render_function(&state);
 		ESAT::DrawBegin();
+		state.root->set_rotation_y(8.0f * ESAT::Time() / 300.0f);
+		state.root->set_rotation_x(5.0f * ESAT::Time() / 300.0f);
 		ESAT::DrawText(10, 20, "cube example");
 		ESAT::DrawEnd();
 		ESAT::WindowFrame();

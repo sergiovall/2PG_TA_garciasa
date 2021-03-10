@@ -1,3 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
   customgeometryexample.cc
-  EDK_customgeometry.vcxproj -> C:\Users\garciasa\Documents\git\2PG_TA_garciasa\EDK_workspace_customgeometry\project\VS2015\EDK_customgeometry\..\..\..\bin\EDK_custommaterial.exe
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_customgeometry\customgeometry\customgeometryexample.cc(178): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_customgeometry\customgeometry\customgeometryexample.cc(179): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  EDK_customgeometry.vcxproj -> D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_customgeometry\project\VS2015\EDK_customgeometry\..\..\..\bin\EDK_custommaterial.exe
