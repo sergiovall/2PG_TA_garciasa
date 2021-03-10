@@ -11,6 +11,7 @@
 #include <EDK3/dev/gpumanager.h>
 #include <EDK3/dev/shader.h>
 #include <YO/mycustommaterial.h>
+#include <YO/triangle.h>
 
 
 double previus_time;
@@ -27,6 +28,12 @@ void prepare(GameState *state) {
 	EDK3::ref_ptr<EDK3::Geometry> cube_geometry;
 	EDK3::CreateCube(&cube_geometry, 1.0f, true, false);
 
+	//Triangle
+	EDK3::ref_ptr<Triangle> triangle_geometry;
+	triangle_geometry.alloc();
+	triangle_geometry->generate();
+
+
 	// Material
 	EDK3::ref_ptr<MyCustomMaterial> custom_material;
 	custom_material.alloc();
@@ -35,7 +42,7 @@ void prepare(GameState *state) {
 	EDK3::ref_ptr<MyCustomMaterial> test_light_mat;
 	test_light_mat.alloc();
 	test_light_mat->load_shaders_from_filepaths("./shaders/light.vert", "./shaders/light.frag");
-
+	
 
 	// Material Settings
 	EDK3::ref_ptr<MyCustomMaterial::Settings> cutom_material_settings;
@@ -52,6 +59,7 @@ void prepare(GameState *state) {
 	// Graphic
 	drawable.alloc();
 	drawable->set_geometry(cube_geometry.get());
+	//drawable->set_geometry(triangle_geometry.get());
 	drawable->set_material(custom_material.get());
 	drawable->set_material_settings(cutom_material_settings.get());
 

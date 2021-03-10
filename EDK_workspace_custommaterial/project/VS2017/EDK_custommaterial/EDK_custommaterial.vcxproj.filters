@@ -108,9 +108,13 @@
     <ClInclude Include="..\..\..\include\YO\mycustommaterial.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\YO\triangle.h">
+      <Filter>Include\YO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\customMaterial\custommaterialcube.cc" />
     <ClCompile Include="..\..\..\customMaterial\mycustommaterial.cc" />
+    <ClCompile Include="..\..\..\customMaterial\triangle.cc" />
   </ItemGroup>
 </Project>

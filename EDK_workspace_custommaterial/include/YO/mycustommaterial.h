@@ -21,6 +21,12 @@ public:
 
 	virtual bool enable(const EDK3::MaterialSettings*) const override;
 
+	virtual unsigned int num_attributes_required() const override;
+
+	virtual EDK3::Attribute attribute_at_index(const unsigned int attrib_idx) const override;
+
+	virtual EDK3::Type attribute_type_at_index(const unsigned int attrib_idx) const override;
+
 protected:
 	virtual ~MyCustomMaterial() {};
 

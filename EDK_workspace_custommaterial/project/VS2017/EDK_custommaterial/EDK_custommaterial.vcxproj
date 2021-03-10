@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6662BED9-FDEE-4798-B31D-8EC3DE8BE903}</ProjectGuid>
     <RootNamespace>EDK_workspace</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>EDK_custommaterial</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -156,10 +156,12 @@
     <ClInclude Include="..\..\..\include\ESAT\time.h" />
     <ClInclude Include="..\..\..\include\ESAT\window.h" />
     <ClInclude Include="..\..\..\include\YO\mycustommaterial.h" />
+    <ClInclude Include="..\..\..\include\YO\triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\customMaterial\custommaterialcube.cc" />
     <ClCompile Include="..\..\..\customMaterial\mycustommaterial.cc" />
+    <ClCompile Include="..\..\..\customMaterial\triangle.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
