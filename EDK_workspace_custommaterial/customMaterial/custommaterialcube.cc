@@ -58,8 +58,8 @@ void prepare(GameState *state) {
 
 	// Graphic
 	drawable.alloc();
-	drawable->set_geometry(cube_geometry.get());
-	//drawable->set_geometry(triangle_geometry.get());
+	//drawable->set_geometry(cube_geometry.get());
+	drawable->set_geometry(triangle_geometry.get());
 	drawable->set_material(custom_material.get());
 	drawable->set_material_settings(cutom_material_settings.get());
 
@@ -83,7 +83,7 @@ void prepare(GameState *state) {
 void render_function(GameState *state) {
 
 	// Update
-	state->root->set_rotation_y(5.0f * ESAT::Time() / 300.0f);
+	//state->root->set_rotation_y(5.0f * ESAT::Time() / 300.0f);
 
 	// For Every frame... determine what's visible:
 	state->camera->doCull(state->root.get());

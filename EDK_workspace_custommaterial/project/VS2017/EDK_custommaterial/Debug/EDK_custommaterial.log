@@ -1,4 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  custommaterialcube.cc
-c:\users\garciasa\documents\git\2pg_ta_garciasa\edk_workspace_custommaterial\custommaterial\custommaterialcube.cc(86): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  EDK_custommaterial.vcxproj -> C:\Users\garciasa\Documents\git\2PG_TA_garciasa\EDK_workspace_custommaterial\project\VS2017\EDK_custommaterial\..\..\..\bin\EDK_custommaterial.exe
+  triangle.cc
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_custommaterial\custommaterial\triangle.cc(19): warning C4715: 'Triangle::bindAttribute': no todas las rutas de acceso de control devuelven un valor
+  EDK_custommaterial.vcxproj -> D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_custommaterial\project\VS2017\EDK_custommaterial\..\..\..\bin\EDK_custommaterial.exe
