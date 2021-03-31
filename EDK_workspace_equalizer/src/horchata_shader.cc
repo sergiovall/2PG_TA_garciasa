@@ -21,10 +21,19 @@ bool HORCHATA::Shader::compile(EDK3::scoped_array<char>* output_log)
 	glCompileShader(shader);
 
 	GLint compile_info;
+	GLsizei log_size;
 	
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &compile_info);
 
-	return false;
+	if (!compile_info) {
+
+		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_size);
+
+	}
+
+	glGetShaderInfoLog(shader, log_size, &log_size, output_log->get());
+
+	return compile_info;
 	
 }
 
