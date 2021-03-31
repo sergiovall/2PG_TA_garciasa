@@ -17,6 +17,12 @@ namespace HORCHATA {
 
 		virtual bool compile(EDK3::scoped_array<char> *output_log = NULL) override;
 
+		virtual bool is_compiled() const override;
+
+		virtual const Type type() const override;
+
+		virtual unsigned int internal_id() const override;
+
 	protected:
 		
 		Shader(){}
@@ -24,11 +30,7 @@ namespace HORCHATA {
 	
 	private:
 
-		Shader(const Shader&);
-		Shader& operator=(const Shader&);
-
-		GLuint shader;
-		Type shader_type;
+		GLuint shader_id;
 
 
 	};

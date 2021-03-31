@@ -8,5 +8,6 @@ in vec2 uv;
 
 void main() { 
  
-	fragColor = texture(u_colorTexture, pos.xy);	
+
+	fragColor = texture(u_colorTexture, uv);	
  }

@@ -61,6 +61,9 @@ void prepare(GameState *state) {
 	ref_ptr<Texture> texture;
 	Texture::Load("blockguy.png", &texture);
 
+	texture->set_min_filter(EDK3::Texture::Filter::F_NEAREST);
+	texture->set_mag_filter(EDK3::Texture::Filter::F_NEAREST);
+
 	// Settings
 	texture_material_settings->set_texture(texture.get());
 
