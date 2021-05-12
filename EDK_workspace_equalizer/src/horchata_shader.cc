@@ -32,7 +32,7 @@ bool HORCHATA::Shader::compile(EDK3::scoped_array<char>* output_log)
 	glCompileShader(shader_id);
 	
 
-	if (!is_compiled) {
+	if (!is_compiled()) {
 
 		if (nullptr == output_log) {
 

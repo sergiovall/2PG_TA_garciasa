@@ -114,6 +114,15 @@
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_gpu_manager.h">
       <Filter>Include\HORCHATA</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\HORCHATA\horchata_buffer.h">
+      <Filter>Include\HORCHATA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\HORCHATA\mycustommaterial.h">
+      <Filter>Include\HORCHATA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\HORCHATA\triangle.h">
+      <Filter>Include\HORCHATA</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\visual_equalizer_main.cc">
@@ -123,6 +132,9 @@
       <Filter>Example</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\horchata_gpu_manager.cc">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\horchata_buffer.cc">
       <Filter>Example</Filter>
     </ClCompile>
   </ItemGroup>

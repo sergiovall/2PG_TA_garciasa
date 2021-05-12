@@ -154,10 +154,14 @@
     <ClInclude Include="..\..\..\include\ESAT\sprite.h" />
     <ClInclude Include="..\..\..\include\ESAT\time.h" />
     <ClInclude Include="..\..\..\include\ESAT\window.h" />
+    <ClInclude Include="..\..\..\include\HORCHATA\horchata_buffer.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_gpu_manager.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_shader.h" />
+    <ClInclude Include="..\..\..\include\HORCHATA\mycustommaterial.h" />
+    <ClInclude Include="..\..\..\include\HORCHATA\triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\horchata_buffer.cc" />
     <ClCompile Include="..\..\..\src\horchata_gpu_manager.cc" />
     <ClCompile Include="..\..\..\src\horchata_shader.cc" />
     <ClCompile Include="..\..\..\src\visual_equalizer_main.cc" />

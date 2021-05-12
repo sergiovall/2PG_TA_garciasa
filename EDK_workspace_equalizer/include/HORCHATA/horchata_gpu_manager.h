@@ -9,7 +9,7 @@ namespace HORCHATA {
 
 	class GPUManager : public EDK3::dev::GPUManager {
 
-		
+		virtual void newBuffer(EDK3::ref_ptr<EDK3::dev::Buffer>* output) override;
 
 	};
 
