@@ -158,6 +158,7 @@
     <ClInclude Include="..\..\..\include\HORCHATA\dir_light.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_buffer.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_gpu_manager.h" />
+    <ClInclude Include="..\..\..\include\HORCHATA\horchata_program.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_shader.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\light_material.h" />
     <ClInclude Include="..\..\..\include\HORCHATA\mycustommaterial.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="..\..\..\src\dir_light.cc" />
     <ClCompile Include="..\..\..\src\horchata_buffer.cc" />
     <ClCompile Include="..\..\..\src\horchata_gpu_manager.cc" />
+    <ClCompile Include="..\..\..\src\horchata_program.cc" />
     <ClCompile Include="..\..\..\src\horchata_shader.cc" />
     <ClCompile Include="..\..\..\src\light_material.cc" />
     <ClCompile Include="..\..\..\src\mycustommaterial.cc" />

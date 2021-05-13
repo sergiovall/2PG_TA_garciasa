@@ -6,6 +6,9 @@
 #include <EDK3/matdiffusetexture.h>
 #include <EDK3/texture.h>
 #include <EDK3/dev/program.h>
+#include <HORCHATA/dir_light.h>
+#include <HORCHATA/point_light.h>
+#include <HORCHATA/spot_light.h>
 
 class Program;
 
@@ -48,36 +51,59 @@ class LightMaterial : public EDK3::MatDiffuseTexture {
 		void set_fog_color(float* new_fog_color) { fog_color_ = new_fog_color; }
 		void set_material_shine(float v) { shininesh_ = v; }
 
-		/*void set_material_dirlights(DirectionalLight* dir_light_array) {
+		void set_material_dirlights(DirLight* dir_light_array) {
 
 			dir_lights_ = dir_light_array;
 
-		}*/
+		}
 		void set_num_dir_lights(int v) {
 			num_dir_lights_ = v;
-		}/*
+		}
 		void set_material_pointlights(PointLight* point_light_array) {
 
 			point_lights_ = point_light_array;
 
-		}*/
+		}
 		void set_num_point_lights(int v) {
 			num_point_lights_ = v;
-		}/*
+		}
 		void set_material_spotlights(SpotLight* spot_light_array) {
 			spot_lights_ = spot_light_array;
-		}*/
+		}
 		void set_num_spot_lights(int v) {
 			num_spot_lights_ = v;
 		}
 		void imguiPanel(char *panel_name);
 
-		//DirectionalLight* dir_lights() { return dir_lights_; }
-		const int num_dir_lights() { return num_dir_lights_; }
-		//PointLight* point_lights() { return point_lights_; }
-		const int num_point_lights() { return num_point_lights_; }
-		//SpotLight* spot_lights() { return spot_lights_; }
-		const int num_spot_lights() { return num_spot_lights_; }
+		DirLight* dir_lights() 
+		{ 
+			return dir_lights_; 
+		}
+
+		const int num_dir_lights() 
+		{ 
+			return num_dir_lights_; 
+		}
+
+		PointLight* point_lights() 
+		{ 
+			return point_lights_; 
+		}
+		
+		const int num_point_lights() 
+		{ 
+			return num_point_lights_; 
+		}
+		
+		SpotLight* spot_lights() 
+		{ 
+			return spot_lights_; 
+		}
+		
+		const int num_spot_lights() 
+		{ 
+			return num_spot_lights_; 
+		}
 
 		const float *color() const { return data_; }
 		const int *fog() const { return activate_fog; }
@@ -104,9 +130,9 @@ class LightMaterial : public EDK3::MatDiffuseTexture {
 		float *fog_color_;
 		EDK3::ref_ptr<EDK3::Texture> texture_;
 		int *activate_fog;
-		//DirectionalLight* dir_lights_;
-		//PointLight* point_lights_;
-		//SpotLight* spot_lights_;
+		DirLight* dir_lights_;
+		PointLight* point_lights_;
+		SpotLight* spot_lights_;
 		int num_dir_lights_;
 		int num_point_lights_;
 		int num_spot_lights_;

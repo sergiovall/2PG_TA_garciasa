@@ -1,7 +1,13 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  dir_light.cc
-  point_light.cc
-  Generando código...
+  horchata_program.cc
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(109): warning C4244: 'argumento': conversión de 'const int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(113): warning C4244: 'argumento': conversión de 'const int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(117): warning C4244: 'argumento': conversión de 'const int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(121): warning C4244: 'argumento': conversión de 'const int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(133): warning C4244: 'argumento': conversión de 'const unsigned int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(137): warning C4244: 'argumento': conversión de 'const unsigned int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(141): warning C4244: 'argumento': conversión de 'const unsigned int' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_program.cc(145): warning C4244: 'argumento': conversión de 'const unsigned int' a 'GLfloat'; posible pérdida de datos
 ESAT_d.lib(draw.obj) : warning LNK4099: no se encontr¾ PDB 'ESAT_d.pdb' con 'ESAT_d.lib(draw.obj)' o en 'D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_projectmanhattan\bin\ESAT_d.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
 ESAT_d.lib(input.obj) : warning LNK4099: no se encontr¾ PDB 'ESAT_d.pdb' con 'ESAT_d.lib(input.obj)' o en 'D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_projectmanhattan\bin\ESAT_d.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
 ESAT_d.lib(math.obj) : warning LNK4099: no se encontr¾ PDB 'ESAT_d.pdb' con 'ESAT_d.lib(math.obj)' o en 'D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_projectmanhattan\bin\ESAT_d.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n

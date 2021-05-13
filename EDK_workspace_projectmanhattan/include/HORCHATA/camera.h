@@ -1,5 +1,5 @@
-#ifndef INCLUDE_HORCHATA_CAMERA_H_
-#define INCLUDE_HORCHATA_DEV_CAMERA_H_ 1
+#ifndef _HORCHATA_CAMERA_H_
+#define _HORCHATA_CAMERA_H_ 1
 
 #include <EDK3/camera.h>
 #include <EDK3/drawable.h>
