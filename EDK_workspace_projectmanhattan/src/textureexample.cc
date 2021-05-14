@@ -157,7 +157,7 @@ int ESAT::main(int argc, char **argv) {
 	WindowInit(1280, 720);
 	DrawSetTextFont("test.ttf");
 	DrawSetTextSize(18);
-	DrawSetFillColor(253, 255, 255, 128);
+	DrawSetFillColor(100, 100, 100, 128);
 	prepare(&state);
 	
 	

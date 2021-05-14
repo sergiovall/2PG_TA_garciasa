@@ -53,7 +53,11 @@ bool LightMaterial::enable(const EDK3::MaterialSettings *mat_settings) const
 		get_program()->set_uniform_value(bright_id, EDK3::T_FLOAT_1, &mat->shininesh_);
 
 		int texture_color_id = get_program()->get_uniform_position("u_texture_color");
-		get_program()->set_uniform_value(texture_color_id, EDK3::T_UINT_1, (int *)0);
+		get_program()->set_uniform_value(texture_color_id, EDK3::T_UINT_1, (int*) 0);
+		
+		//FALLO EN LA TEXTURA
+		//FALLO EN LA ÚLTIMA FUNCIÓN DEL FRAGMENT (COMENTADO)
+		//FALLO EN HORCHATA::SHADER
 
 		if (mat->fog_color()) {
 
@@ -130,6 +134,8 @@ bool LightMaterial::enable(const EDK3::MaterialSettings *mat_settings) const
 				get_program()->set_uniform_value(light_struct_id, 
 					EDK3::T_FLOAT_3, 
 					mat->dir_lights()[i].light_color_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].light_color_);
 			 
 			}
 			 
@@ -141,6 +147,8 @@ bool LightMaterial::enable(const EDK3::MaterialSettings *mat_settings) const
 				get_program()->set_uniform_value(light_struct_id, 
 					EDK3::T_FLOAT_1, 
 					&mat->dir_lights()[i].light_strength_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].light_strength_);
 			 
 			}
 		

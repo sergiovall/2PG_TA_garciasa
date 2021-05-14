@@ -66,11 +66,11 @@ uniform vec3 u_fog_color;
 uniform sampler2D u_texture_color;
 
 
-Vec3CalcDirLight(DirLight light, vec3 light_normal, vec3 view_direction){
+vec3 Vec3CalcDirLight(DirLight light, vec3 light_normal, vec3 view_direction){
 
   vec3 light_direction = normalize(-light.direction);
 
-  float diffuse_strength = max(dot(normal,light_direction),0.0f);
+  float diffuse_strength = max(dot(normal,light.direction),0.0f);
   vec3 reflect_direction = reflect(-light_direction, normal);
 
   float spec = pow(max(dot(view_direction, reflect_direction),0.0f), u_mat_bright);
@@ -121,13 +121,13 @@ vec3 Vec3CalcSpotLight(SpotLight light, vec3 light_normal, vec3 view_direction){
     float attenuate_value = (10000.0f * light.light_force * light.light_force)/(light.constant + light.linear * dist + light.quadratic * (dist*dist));
 
     vec3 reflect_direction = reflect(-light_direction, normal);
-    float spec = pow(max(dot(view_direction, reflect_direction),0.0f), u_material_bright);
+    float spec = pow(max(dot(view_direction, reflect_direction),0.0f), u_mat_bright);
     vec3 specular = light.specular * spec * vec3(texture(u_texture_color, uv )) * light.light_color;
 
     ambient *= light_intensity;
     diffuse  *= attenuate_value * light_intensity;
-    specular_source *= attenuate_value * light_intensity;
-    return ( ambient + diffuse+ specular_source);
+    //specular_source *= attenuate_value * light_intensity;
+    return ( ambient + diffuse);//+ specular_source);
   }
   else
   {
