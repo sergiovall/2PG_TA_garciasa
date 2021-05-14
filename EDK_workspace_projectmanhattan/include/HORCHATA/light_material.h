@@ -1,7 +1,7 @@
 #pragma once
 
 #include <EDK3/ref_ptr.h>
-#include <EDK3/material.h>
+#include <math.h>
 #include <EDK3/materialsettings.h>
 #include <EDK3/matdiffusetexture.h>
 #include <EDK3/texture.h>
@@ -14,6 +14,7 @@ class Program;
 
 class LightMaterial : public EDK3::MatDiffuseTexture {
 
+public:
 
 	LightMaterial();
 	virtual bool enable(const EDK3::MaterialSettings *mat_settings) const override;
@@ -28,7 +29,7 @@ class LightMaterial : public EDK3::MatDiffuseTexture {
 
 	EDK3::dev::Program* get_program();
 	const EDK3::dev::Program* get_program() const;
-	//
+	
 	bool load_shaders(EDK3::ref_ptr<EDK3::dev::Shader> vertex_shader, EDK3::ref_ptr<EDK3::dev::Shader> fragment_shader);
 
 	void set_program(EDK3::ref_ptr<EDK3::dev::Program> program);
@@ -47,6 +48,7 @@ class LightMaterial : public EDK3::MatDiffuseTexture {
 		void set_camera_position(float *v) {
 			camera_position_ = v;
 		}
+
 		void set_fog(int* fog_) { activate_fog = fog_; }
 		void set_fog_color(float* new_fog_color) { fog_color_ = new_fog_color; }
 		void set_material_shine(float v) { shininesh_ = v; }
@@ -56,23 +58,29 @@ class LightMaterial : public EDK3::MatDiffuseTexture {
 			dir_lights_ = dir_light_array;
 
 		}
+
 		void set_num_dir_lights(int v) {
 			num_dir_lights_ = v;
 		}
+
 		void set_material_pointlights(PointLight* point_light_array) {
 
 			point_lights_ = point_light_array;
 
 		}
+
 		void set_num_point_lights(int v) {
 			num_point_lights_ = v;
 		}
+
 		void set_material_spotlights(SpotLight* spot_light_array) {
 			spot_lights_ = spot_light_array;
 		}
+
 		void set_num_spot_lights(int v) {
 			num_spot_lights_ = v;
 		}
+
 		void imguiPanel(char *panel_name);
 
 		DirLight* dir_lights() 

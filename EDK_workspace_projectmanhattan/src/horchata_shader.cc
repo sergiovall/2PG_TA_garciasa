@@ -1,6 +1,10 @@
 #include <HORCHATA/horchata_shader.h>
 #include <EDK3/dev/opengl.h>
 
+HORCHATA::Shader::Shader(){}
+
+HORCHATA::Shader::~Shader(){}
+
 void HORCHATA::Shader::loadSource(const Type shader_type, const char * source, const unsigned int source_size)
 {
 

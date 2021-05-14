@@ -62,10 +62,341 @@ bool LightMaterial::enable(const EDK3::MaterialSettings *mat_settings) const
 
 		}
 
+		if (mat->dir_lights()) {
+			char text[500];
+			int num_dir = mat->num_dir_lights();
+			int light_struct_id;
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_dir_lights[%d].direction"), "u_dir_lights[%d].direction", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->dir_lights()[i].dir_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].dir_);
+
 		
+			}
+
+			 for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_dir_lights[%d].ambient"), "u_dir_lights[%d].ambient", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id,
+					EDK3::T_FLOAT_3, 
+					mat->dir_lights()[i].ambient_light_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].ambient_light_);
+
+			 
+			 }
+			 
+			 for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_dir_lights[%d].diffuse"), "u_dir_lights[%d].diffuse", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->dir_lights()[i].diffuse_light_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].diffuse_light_);
+
+			 
+			 }
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_dir_lights[%d].specular"), "u_dir_lights[%d].specular", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->dir_lights()[i].specular_light_);
+
+				printf("%s , %d\n", text, mat->dir_lights()[i].specular_light_);
+
+			 
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_dir_lights[%d].light_color"), "u_dir_lights[%d].light_color", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->dir_lights()[i].light_color_);
+			 
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_dir_lights[%d].light_force"), "u_dir_lights[%d].light_force", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->dir_lights()[i].light_strength_);
+			 
+			}
+		
+		}
+
+		if (mat->point_lights()) {
+			char text[1000];
+			int num_dir = mat->num_point_lights();
+			int light_struct_id;
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_point_lights[%d].position"), "u_point_lights[%d].position", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->point_lights()[i].light_pos_);
+
+			}
+
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_point_lights[%d].ambient"), "u_point_lights[%d].ambient", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->point_lights()[i].ambient_light_);
+			
+			}
+
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_point_lights[%d].diffuse"), "u_point_lights[%d].diffuse", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->point_lights()[i].diffuse_light_);
+			
+			}
+			
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_point_lights[%d].specular"), "u_point_lights[%d].specular", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->point_lights()[i].specular_light_);
+			
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_point_lights[%d].light_color"), "u_point_lights[%d].light_color", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->point_lights()[i].light_color_);
+
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_point_lights[%d].light_force"), "u_point_lights[%d].light_force", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->point_lights()[i].light_strength_);
+			 
+			}
+ 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_point_lights[%d].linear"), "u_point_lights[%d].linear", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->point_lights()[i].linear_light_);
+
+			}
+ 
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_point_lights[%d].constant"), "u_point_lights[%d].constant", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->point_lights()[i].constant_);
+			 
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_point_lights[%d].quadratic"), "u_point_lights[%d].quadratic", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->point_lights()[i].quadratic_);
+			
+			}
+		}
+
+		if (mat->spot_lights()) {
+
+			char text[1000];
+
+			int num_dir = mat->num_spot_lights();
+			int light_struct_id;
+
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_spot_lights[%d].position"), "u_spot_lights[%d].position", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id,
+					EDK3::T_FLOAT_3,
+					mat->spot_lights()[i].light_pos_);
+
+				printf("%s , %d\n", text, mat->spot_lights()[i].light_pos_);
+			
+			}
+			
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_spot_lights[%d].direction"), "u_spot_lights[%d].direction", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+				   EDK3::T_FLOAT_3, 
+				   mat->spot_lights()[i].light_dir_);
+			
+			}
+			
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_spot_lights[%d].ambient"), "u_spot_lights[%d].ambient", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->spot_lights()[i].ambient_light_);
+			
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_spot_lights[%d].diffuse"), "u_spot_lights[%d].diffuse", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->spot_lights()[i].diffuse_light_);
+			 
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+			   
+				snprintf(text, sizeof("u_spot_lights[%d].specular"), "u_spot_lights[%d].specular", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->spot_lights()[i].specular_light_);
+			 
+			}
+			  
+			for (int i = 0; i < num_dir; ++i) {
+			   
+				snprintf(text, sizeof("u_spot_lights[%d].light_color"), "u_spot_lights[%d].light_color", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_3, 
+					mat->spot_lights()[i].light_color_);
+			
+			}
+			  
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_spot_lights[%d].light_force"), "u_spot_lights[%d].light_force", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+
+				get_program()->set_uniform_value(light_struct_id, 
+				   EDK3::T_FLOAT_1, 
+				   &mat->spot_lights()[i].light_strength_);
+			   
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+
+				snprintf(text, sizeof("u_spot_lights[%d].linear"), "u_spot_lights[%d].linear", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+
+				get_program()->set_uniform_value(light_struct_id, 
+				   EDK3::T_FLOAT_1, 
+				   &mat->spot_lights()[i].linear_light_);
+			   
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+			   
+				snprintf(text, sizeof("u_spot_lights[%d].constant"), "u_spot_lights[%d].constant", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+				   EDK3::T_FLOAT_1, 
+				   &mat->spot_lights()[i].constant_);
+			   
+			}
+			 
+			for (int i = 0; i < num_dir; ++i) {
+				
+				snprintf(text, sizeof("u_spot_lights[%d].quadratic"), "u_spot_lights[%d].quadratic", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+				   EDK3::T_FLOAT_1, 
+				   &mat->spot_lights()[i].quadratic_);
+			   
+			}
+			
+			for (int i = 0; i < num_dir; ++i) {
+			   
+				snprintf(text, sizeof("u_spot_lights[%d].angle"), "u_spot_lights[%d].angle", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+				
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->spot_lights()[i].angle_);
+			   
+			}
+			
+			for (int i = 0; i < num_dir; ++i) {
+			   
+				snprintf(text, sizeof("u_spot_lights[%d].external_angle"), "u_spot_lights[%d].external_angle", i);
+				light_struct_id = get_program()->get_uniform_position(text);
+			   
+				get_program()->set_uniform_value(light_struct_id, 
+					EDK3::T_FLOAT_1, 
+					&mat->spot_lights()[i].ext_angle_);
+			   
+			}
+		}
 
 	}
+
+	//Tremendo si funciona a la primera
 	return false;
+
 }
 
 void LightMaterial::setupCamera(const float projecton[16], const float view[16]) const

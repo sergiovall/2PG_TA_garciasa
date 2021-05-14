@@ -1,5 +1,6 @@
 #ifndef INCLUDE_HORCHATA_SHADER_H_
-#define INCLUDE_HORCHATA_DEV_SHADER_H_ 1
+#define INCLUDE_HORCHATA_SHADER_H_ 1
+
 
 #include <EDK3/dev/shader.h>
 #include <EDK3/dev/opengl.h>
@@ -23,10 +24,10 @@ namespace HORCHATA {
 
 		virtual unsigned int internal_id() const override;
 
-	protected:
+	
 		
-		Shader(){}
-		virtual ~Shader(){}
+		Shader();
+		~Shader();
 	
 	private:
 

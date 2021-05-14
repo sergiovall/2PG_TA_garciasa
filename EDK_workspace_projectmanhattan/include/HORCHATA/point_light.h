@@ -25,6 +25,8 @@ public:
 		float constant = 0.0f,
 		float quadratic = 0.0f);
 
+	void setPosition(float pos[3]);
+
 	float light_pos_[4];
 	float ambient_light_[4];
 	float diffuse_light_[4];

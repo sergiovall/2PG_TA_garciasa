@@ -9,6 +9,8 @@
 #include <EDK3/texture.h>
 #include <EDK3/matdiffusetexture.h>
 #include <EDK3/dev/gpumanager.h>
+#include <HORCHATA/light_material.h>
+#include <HORCHATA/horchata_gpu_manager.h>
 
 using namespace ESAT;
 using namespace EDK3;
@@ -16,14 +18,64 @@ using namespace EDK3::dev;
 
 double previus_time;
 
+const unsigned int k_dir_lights = 1;
+const unsigned int k_point_lights = 1;
+const unsigned int k_spot_lights = 1;
+
 struct GameState {
+
 	ref_ptr<Camera> camera;
 	ref_ptr<Node> root;
+
+	DirLight dir_light_array[k_dir_lights];
+	PointLight point_light_array[k_point_lights];
+	SpotLight spot_light[k_spot_lights];
+
 };
 
 void prepare(GameState *state) {
 
 	GPUManager::CheckGLError("Prepare Start");
+
+	//Lights
+	
+
+	for (int i = 0; i < k_dir_lights; i++) {
+
+		float dir[3] = { 15.0f,1.0f,1.0f };
+		float ambient[3] = { 1.0f,1.0f,1.0f };
+		float diffuse[3] = { 2.0f,1.0f,1.0f };
+		float specular[3] = { 15.0f,10.0f,12.0f };
+		float color[3] = { 1.0f,1.0f,0.0f };
+
+		state->dir_light_array[i].initDirLight(dir,ambient,diffuse,specular,color,1.0f);
+
+	}
+
+	for (int i = 0; i < k_point_lights; i++) {
+
+		float pos[3] = { 0.0f,1.0f,1.0f };
+		float ambient[3] = { 1.0f,1.0f,1.0f };
+		float diffuse[3] = { 2.0f,1.0f,1.0f };
+		float specular[3] = { 15.0f,10.0f,12.0f };
+		float color[3] = { 1.0f,1.0f,0.0f };
+
+		state->point_light_array[i].initPointLight(pos,ambient,diffuse,specular,color,1.0f,1.0f,1.0f,1.0f);
+
+	}
+
+	for (int i = 0; i < k_spot_lights; i++) {
+
+		float pos[3] = { 0.0f,1.0f,1.0f };
+		float dir[3] = { 1.0f, 1.0f, 1.0f };
+		float ambient[3] = { 1.0f,1.0f,1.0f };
+		float diffuse[3] = { 2.0f,1.0f,1.0f };
+		float specular[3] = { 15.0f,10.0f,12.0f };
+		float color[3] = { 1.0f,1.0f,0.0f };
+
+		state->spot_light[i].initSpotLight(pos,dir,ambient,diffuse,specular,color,1.0f,1.0f,1.0f,1.0f,15.0f,35.0f);
+
+	}
 	
 	// Nodes
 	Node* root = state->root.alloc();	
@@ -37,8 +89,10 @@ void prepare(GameState *state) {
 	LoadObj("../assets/Models/SM_Building_03.obj", &buildingGeometries, &errorLog);
 	
 	// Material
-	ref_ptr<MatDiffuseTexture> diffuse_material;
+	ref_ptr<LightMaterial> diffuse_material;
 	diffuse_material.alloc();
+	diffuse_material->load_shaders_from_filepaths("../assets/shaders/patatasconbacon.vert","../assets/shaders/patatasconbacon.frag");
+	
 
 	// Texture
 	ref_ptr<Texture> texture;
@@ -46,10 +100,16 @@ void prepare(GameState *state) {
 	texture->generateMipmaps();
 
 	// Material Settings
-	ref_ptr<MatDiffuseTexture::Settings> diffuse_material_settings;
+	ref_ptr<LightMaterial::Settings> diffuse_material_settings;
 	diffuse_material_settings.alloc();	
 	diffuse_material_settings->set_color(1.0f, 1.0f, 1.0f);
 	diffuse_material_settings->set_texture(texture.get());
+	diffuse_material_settings->set_material_dirlights(state->dir_light_array);
+	diffuse_material_settings->set_num_dir_lights(k_dir_lights);
+	diffuse_material_settings->set_material_pointlights(state->point_light_array);
+	diffuse_material_settings->set_num_point_lights(k_point_lights);
+	diffuse_material_settings->set_material_spotlights(state->spot_light);
+	diffuse_material_settings->set_num_spot_lights(k_spot_lights);
 
 	// Graphic
 	drawable->set_geometry(buildingGeometries[0].get());
@@ -91,12 +151,15 @@ void render_function(GameState *state) {
 int ESAT::main(int argc, char **argv) {
 	
 	// State
+	HORCHATA::GPUManager my_gpu_manager;
+	EDK3::dev::GPUManager::Instance()->ReplaceGPUManagerImplementation(&my_gpu_manager);
 	GameState state;
 	WindowInit(1280, 720);
 	DrawSetTextFont("test.ttf");
 	DrawSetTextSize(18);
 	DrawSetFillColor(253, 255, 255, 128);
 	prepare(&state);
+	
 	
 	// Main loop
 	while (WindowIsOpened() && !IsSpecialKeyDown(kSpecialKey_Escape)) {

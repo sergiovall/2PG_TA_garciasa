@@ -11,7 +11,7 @@ DirLight::DirLight() {
 		ambient_light_[i] = 0.0f;
 		diffuse_light_[i] = 0.0f;
 		specular_light_[i] = 0.0f;
-		light_color_[i] = 0.0f;
+		light_color_[i] = 1.0f;
 
 	}
 

@@ -100,4 +100,15 @@ void SpotLight::initSpotLight(float pos[3], float dir[3], float ambient_light[3]
 
 }
 
+void SpotLight::setPosition(float pos[3])
+{
+
+	for (int i = 0; i < 3; i++) {
+
+		light_pos_[i] = pos[i];
+
+	}
+
+}
+
 

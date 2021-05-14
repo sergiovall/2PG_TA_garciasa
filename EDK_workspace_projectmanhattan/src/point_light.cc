@@ -83,3 +83,14 @@ void PointLight::initPointLight(float pos[3], float ambient_light[3], float diff
 	}
 
 }
+
+void PointLight::setPosition(float pos[3])
+{
+
+	for (int i = 0; i < 3; i++) {
+
+		light_pos_[i] = pos[i];
+
+	}
+
+}

@@ -28,6 +28,8 @@ public:
 		float angle = 0.0f,
 		float external_angle = 0.0f);
 
+	void setPosition(float pos[3]);
+
 	float light_pos_[4];
 	float light_dir_[4];
 	float ambient_light_[4];
