@@ -9,6 +9,7 @@
 
 #include "referenced.h"
 #include "constants.h"
+#include "ref_ptr.h"
 
 namespace EDK3 {
 

@@ -21,14 +21,14 @@ void HORCHATA::GPUManager::newBuffer(EDK3::ref_ptr<EDK3::dev::Buffer>* output) {
 
 }*/
 
-/*void HORCHATA::GPUManager::newProgram(EDK3::ref_ptr<EDK3::dev::Program>* output)
+void HORCHATA::GPUManager::newProgram(EDK3::ref_ptr<EDK3::dev::Program>* output)
 {
 
 	output->allocT<Program>();
 
-}*/
+}
 
-/*void HORCHATA::GPUManager::enableVertexAttribute(const EDK3::dev::Buffer * buffer, 
+void HORCHATA::GPUManager::enableVertexAttribute(const EDK3::dev::Buffer * buffer, 
 	const unsigned int attribute_index, 
 	const EDK3::Type type, 
 	const bool normalized, 
@@ -186,14 +186,14 @@ void HORCHATA::GPUManager::newBuffer(EDK3::ref_ptr<EDK3::dev::Buffer>* output) {
 	glEnableVertexAttribArray(attribute_index);
 
 
-}*/
+}
 
 void HORCHATA::GPUManager::disableVertexAttribute(const unsigned int attrib_index)
 {
 	glDisableVertexAttribArray(attrib_index);
 }
 
-/*void HORCHATA::GPUManager::drawElements(const DrawMode mode, unsigned int count, const EDK3::dev::Buffer * buffer, const EDK3::Type element_type, const unsigned int offset) const
+void HORCHATA::GPUManager::drawElements(const DrawMode mode, unsigned int count, const EDK3::dev::Buffer * buffer, const EDK3::Type element_type, const unsigned int offset) const
 {
 
 	GLenum data_mode;
@@ -258,7 +258,7 @@ void HORCHATA::GPUManager::disableVertexAttribute(const unsigned int attrib_inde
 
 	glDrawElements(data_mode, count, data_type, (void*)offset);
 
-}*/
+}
 
 void HORCHATA::GPUManager::enableDepthTest(const CompareFunc f)
 {

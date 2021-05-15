@@ -126,8 +126,8 @@ vec3 Vec3CalcSpotLight(SpotLight light, vec3 light_normal, vec3 view_direction){
 
     ambient *= light_intensity;
     diffuse  *= attenuate_value * light_intensity;
-    //specular_source *= attenuate_value * light_intensity;
-    return ( ambient + diffuse);//+ specular_source);
+    specular *= attenuate_value * light_intensity;
+    return ( ambient + diffuse + specular);
   }
   else
   {

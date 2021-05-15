@@ -20,24 +20,24 @@ namespace HORCHATA {
 
 		//virtual void newShader(EDK3::ref_ptr<EDK3::dev::Shader>* output) override;
 
-		//virtual void newProgram(EDK3::ref_ptr<EDK3::dev::Program>* output) override;
+		virtual void newProgram(EDK3::ref_ptr<EDK3::dev::Program>* output) override;
 
-		/*virtual void enableVertexAttribute(
+		virtual void enableVertexAttribute(
 			const EDK3::dev::Buffer *buffer,
 			const unsigned int attribute_index,
 			const EDK3::Type type,
 			const bool normalized = false,
 			const unsigned int offset = 0,
-			const unsigned int stride = 0) override;*/
+			const unsigned int stride = 0) override;
 
 		virtual void disableVertexAttribute(const unsigned int attrib_index) override;
 
-		/*virtual void drawElements(
+		virtual void drawElements(
 			const DrawMode mode,
 			unsigned int count,
 			const EDK3::dev::Buffer *buffer,
 			const EDK3::Type element_type = EDK3::T_USHORT,
-			const unsigned int offset = 0) const override;*/
+			const unsigned int offset = 0) const override;
 
 		virtual void enableDepthTest(const CompareFunc f) override;
 

@@ -1,2 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  EDK_workspace.vcxproj -> C:\Users\garciasa\Documents\git\2PG_TA_garciasa\EDK_workspace_projectmanhattan\project\VS2017\EDK_workspace\..\..\..\bin\EDK_workspace.exe
+  horchata_texture.cc
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_texture.cc(206): warning C4244: 'argumento': conversión de 'GLuint' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_texture.cc(244): warning C4244: 'argumento': conversión de 'GLuint' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_texture.cc(270): warning C4244: 'argumento': conversión de 'GLuint' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_texture.cc(296): warning C4244: 'argumento': conversión de 'GLuint' a 'GLfloat'; posible pérdida de datos
+d:\desarrollo\git\2pg_ta_garciasa\edk_workspace_projectmanhattan\src\horchata_texture.cc(322): warning C4244: 'argumento': conversión de 'GLuint' a 'GLfloat'; posible pérdida de datos
+  EDK_workspace.vcxproj -> D:\Desarrollo\git\2PG_TA_garciasa\EDK_workspace_projectmanhattan\project\VS2017\EDK_workspace\..\..\..\bin\EDK_workspace.exe

@@ -56,7 +56,6 @@ bool LightMaterial::enable(const EDK3::MaterialSettings *mat_settings) const
 		get_program()->set_uniform_value(texture_color_id, EDK3::T_UINT_1, (int*) 0);
 		
 		//FALLO EN LA TEXTURA
-		//FALLO EN LA ÚLTIMA FUNCIÓN DEL FRAGMENT (COMENTADO)
 		//FALLO EN HORCHATA::SHADER
 
 		if (mat->fog_color()) {

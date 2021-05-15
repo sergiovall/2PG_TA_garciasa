@@ -1,11 +1,12 @@
 #include <HORCHATA/horchata_shader.h>
-#include <EDK3/dev/opengl.h>
 
 HORCHATA::Shader::Shader(){}
 
 HORCHATA::Shader::~Shader(){}
 
-void HORCHATA::Shader::loadSource(const Type shader_type, const char * source, const unsigned int source_size)
+void HORCHATA::Shader::loadSource(const Type shader_type, 
+	const char * source, 
+	const unsigned int source_size)
 {
 
 	switch (shader_type) {
@@ -38,14 +39,14 @@ bool HORCHATA::Shader::compile(EDK3::scoped_array<char>* output_log)
 
 	if (!is_compiled()) {
 
-		if (nullptr == output_log) {
+		if (NULL != output_log) {
 
 			GLint log_size = 0;
 			glGetShaderiv(shader_id, GL_INFO_LOG_LENGTH, &log_size);
 
 			output_log->alloc(log_size);
 
-			glGetShaderInfoLog(shader_id, log_size, &log_size, output_log->get());	// &logsize no lo tengo claro alomejor hay que meter tremendo null ahí
+			glGetShaderInfoLog(shader_id, log_size, NULL, output_log->get());
 
 		}
 

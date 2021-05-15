@@ -138,6 +138,9 @@
     <ClInclude Include="..\..\..\include\HORCHATA\horchata_program.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\HORCHATA\horchata_texture.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\textureexample.cc">
@@ -174,6 +177,9 @@
       <Filter>Example</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\horchata_program.cc">
+      <Filter>Example</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\horchata_texture.cc">
       <Filter>Example</Filter>
     </ClCompile>
   </ItemGroup>
